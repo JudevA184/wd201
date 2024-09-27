@@ -1,7 +1,8 @@
-const minimist=require("minimist")
-const args = minimist(process.argv.slice(2));
+
 const http=require("http")
 const fs=require("fs");
+const minimist=require("minimist")
+const args = minimist(process.argv.slice(2));
 
 const port=parseInt(args.port);
 
@@ -31,12 +32,15 @@ http.createServer((request,response)=>{
     switch(url){
         case "/project":
             response.write(projectcontent)
+            response.end()
             break
         case "/registration":
             response.write(regcontent)
+            response.end()
             break
         default:
             response.write(homecontent)
+            response.end()
             break
     }
 }).listen(port)
