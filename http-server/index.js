@@ -1,15 +1,8 @@
-<<<<<<< HEAD
-const minimist=require("minimist")
-const args = minimist(process.argv.slice(2));
-const http=require("http")
-const fs=require("fs");
-=======
 
 const http=require("http")
 const fs=require("fs");
 const minimist=require("minimist")
 const args = minimist(process.argv.slice(2));
->>>>>>> 675a920a5b71e0f486a85f83af98c25c8d7c0e64
 
 const port=parseInt(args.port);
 
@@ -50,8 +43,4 @@ http.createServer((request,response)=>{
             response.end()
             break
     }
-<<<<<<< HEAD
 }).listen(port)
-=======
-}).listen(port)
->>>>>>> 675a920a5b71e0f486a85f83af98c25c8d7c0e64
