@@ -1,5 +1,16 @@
 const todoList = () => {
-  all = []
+  const formattedDate = d => {
+  return d.toISOString().split("T")[0]
+}
+var dateToday = new Date()
+const today = formattedDate(dateToday)
+const yesterday = formattedDate(
+  new Date(new Date().setDate(dateToday.getDate() - 1))
+)
+const tomorrow = formattedDate(
+  new Date(new Date().setDate(dateToday.getDate() + 1))
+)
+  let all = []
   const add = (todoItem) => {
     all.push(todoItem)
   }
@@ -10,7 +21,7 @@ const todoList = () => {
   const overdue = () => {
     // Write the date check condition here and return the array
     // of overdue items accordingly.
-    arr=[]
+    let arr=[]
     all.forEach(element => {
         if(element.dueDate===yesterday){
             arr.push(element)
@@ -22,7 +33,7 @@ const todoList = () => {
   const dueToday = () => {
     // Write the date check condition here and return the array
     // of todo items that are due today accordingly.
-    arr=[]
+    let arr=[]
     all.forEach(element => {
         if(element.dueDate===today){
             arr.push(element)
@@ -34,7 +45,7 @@ const todoList = () => {
   const dueLater = () => {
     // Write the date check condition here and return the array
     // of todo items that are due later accordingly.
-    arr=[]
+    let arr=[]
     all.forEach(element => {
         if(element.dueDate===tomorrow){
             arr.push(element)
@@ -46,7 +57,7 @@ const todoList = () => {
   const toDisplayableList = (list) => {
     // Format the To-Do list here, and return the output string
     // as per the format given above.
-    arr=[]
+    let arr=[]
     list.forEach(element=>{
         if(element.dueDate===yesterday || element.dueDate===tomorrow){
             if(element.completed===true){
